@@ -1,10 +1,13 @@
 #!/bin/sh
 
-sudo apt update
-sudo apt install -y apt-transport-https
+sudo apt-get update
+sudo apt-get -y upgrade
+
+sudo apt-get update
+sudo apt-get install -y apt-transport-https
 
 # Enable VSCode repo
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+curl -s https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
@@ -12,12 +15,12 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 
 # Dart
-$ sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
-$ sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
+sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
+sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
 
-sudo apt update
+sudo apt-get update
 # Install apps
-sudo apt install -y git zsh code tilix nodejs dart snapd
+sudo apt-get install -y git zsh code tilix nodejs dart snapd
 
 # Oh-My-Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
@@ -26,7 +29,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 curl -s "https://get.sdkman.io" | bash
 
 # Chrome
-curl -o /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+curl -os /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i /tmp/chrome.deb
 rm -f /tmp/chrome.deb
 
@@ -53,7 +56,7 @@ mkdir $HOME/Library
 
 # Setup Spring tools
 # TODO: Make this more generic to allow for easier version "upping"
-curl -o /tmp/spring-tools.tar.gz http://download.springsource.com/release/STS4/4.1.1.RELEASE/dist/e4.10/spring-tool-suite-4-4.1.1.RELEASE-e4.10.0-linux.gtk.x86_64.tar.gz
+curl -os /tmp/spring-tools.tar.gz http://download.springsource.com/release/STS4/4.1.1.RELEASE/dist/e4.10/spring-tool-suite-4-4.1.1.RELEASE-e4.10.0-linux.gtk.x86_64.tar.gz
 
 tar -zxf /tmp/spring-tools.tar.gz -C $HOME/Library/
 rm -rf /tmp/spring-tools.tar.gz
