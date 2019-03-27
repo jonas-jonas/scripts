@@ -12,7 +12,7 @@ sudo apt-get -qq update
 sudo apt-get -yq upgrade
 
 # Install apt-transport-https for downloading apt packages via https
-sudo apt-get install -y apt-transport-https
+sudo apt-get install -y apt-transport-https curl
 
 # Enable VSCode repo
 curl -s https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
