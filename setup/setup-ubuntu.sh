@@ -66,7 +66,7 @@ echo "Finished downloading Spring Tool Suite"
 tar -zxf /tmp/spring-tools.tar.gz -C $HOME/Library/
 rm -rf /tmp/spring-tools.tar.gz
 # Create desktop entry
-cd $HOME/Library/sts-4.1.2.RELEASE
+pushd $HOME/Library/sts-4.1.2.RELEASE
 sudo bash -c 'cat <<EOF >/usr/share/applications/spring-tools.desktop
 [Desktop Entry]
 Name=Spring Tool Suite
@@ -76,6 +76,8 @@ Terminal=false
 Type=Application
 StartupWMClass=Spring Tool Suite 4
 EOF'
+popd
+echo "Installed Spring Tool Suite"
 
 # Download MONONOKI font
 MONONOKI_VERSION=$(get_latest_release "madmalik/mononoki")
