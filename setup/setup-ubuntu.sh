@@ -60,13 +60,13 @@ mkdir $HOME/Library
 
 # Setup Spring tools
 echo "Downloading Spring Tool Suite"
-curl -so /tmp/spring-tools.tar.gz "https://download.springsource.com/release/STS4/4.1.2.RELEASE/dist/e4.10/spring-tool-suite-4-4.1.2.RELEASE-e4.10.0-linux.gtk.x86_64.tar.gz"
+curl -so /tmp/spring-tools.tar.gz "https://download.springsource.com/release/STS4/4.2.0.RELEASE/dist/e4.11/spring-tool-suite-4-4.2.0.RELEASE-e4.11.0-linux.gtk.x86_64.tar.gz"
 echo "Finished downloading Spring Tool Suite"
 
 tar -zxf /tmp/spring-tools.tar.gz -C $HOME/Library/
 rm -rf /tmp/spring-tools.tar.gz
 # Create desktop entry
-pushd $HOME/Library/sts-4.1.2.RELEASE
+pushd $HOME/Library/sts-4.2.0.RELEASE
 sudo bash -c 'cat <<EOF >/usr/share/applications/spring-tools.desktop
 [Desktop Entry]
 Name=Spring Tool Suite
